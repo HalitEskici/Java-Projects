@@ -1,0 +1,33 @@
+package Test;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        int mat, physics, chemistry, turkish, history, music;
+        Scanner subject =  new Scanner(System.in);
+        System.out.print("Enter your Math note: ");
+        mat = subject.nextInt();
+
+        System.out.print("Enter your Physics note: ");
+        physics = subject.nextInt();
+
+        System.out.print("Enter your Chemistry note: ");
+        chemistry = subject.nextInt();
+
+        System.out.print("Enter your Turkish note: ");
+        turkish = subject.nextInt();
+
+        System.out.print("Enter your History note: ");
+        history = subject.nextInt();
+
+        System.out.print("Enter your Music note: ");
+        music = subject.nextInt();
+
+        double average = (mat+physics+turkish+history+chemistry+music)/6;
+        System.out.println("Your average: " + average);
+
+        String result = (average > 60) ? "You passed the class." : "You failed the class.";
+        System.out.println(result);
+    }
+}
