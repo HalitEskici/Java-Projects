@@ -1,0 +1,16 @@
+package Test;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Enter currency value: ");
+        double money = scan.nextDouble();
+        System.out.println("Price without VAT: " + money);
+        double vatRate = (money > 1000) ? 0.08 : 0.18;
+        double moneyWithVAT = money + (vatRate * money);
+        System.out.println("Price with VAT: " + moneyWithVAT);
+    }
+}
