@@ -1,0 +1,21 @@
+package Test;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner area = new Scanner(System.in);
+        double sideOne, sideTwo, sideThree;
+        System.out.print("Enter the 1st side: ");
+        sideOne = area.nextDouble();
+        System.out.print("Enter the 2nd side: ");
+        sideTwo = area.nextDouble();
+        System.out.print("Enter the 3rd side: ");
+        sideThree = area.nextDouble();
+        double perimeter = sideOne + sideTwo + sideThree;
+        double u = perimeter / 2;
+        double result = Math.sqrt(u * (u - sideOne) * (u - sideTwo) * (u - sideThree));
+        System.out.println("The area of the triangle you entered the sides of: " + result);
+    }
+}
