@@ -1,2 +1,2 @@
 # Java-Projects
-This repo comprises the Java projects on the patika.dev website.
+This repo comprises my Java projects during my learning process.
