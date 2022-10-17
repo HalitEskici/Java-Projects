@@ -1,0 +1,28 @@
+package Test;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner greengrocer = new Scanner(System.in);
+
+        /*  2,14 Turkish Lira (TL) per kilogram of pear
+            3,67 TL per kilogram of apple
+            1,11 TL per kilogram of tomato
+            0,95 TL per kilogram of banana
+            5,00 TL per kilogram of aubergine   */
+        double pear, apple, tomato, banana, aubergine;
+        System.out.print("How many kilos of pears did you buy?: ");
+        pear = greengrocer.nextDouble();
+        System.out.print("How many kilos of apples did you buy?: ");
+        apple = greengrocer.nextDouble();
+        System.out.print("How many kilos of tomatoes did you buy?: ");
+        tomato = greengrocer.nextDouble();
+        System.out.print("How many kilos of bananas did you buy?: ");
+        banana = greengrocer.nextDouble();
+        System.out.print("How many kilos of aubergines did you buy?: ");
+        aubergine = greengrocer.nextDouble();
+        double sum = (pear * 2.14) + (apple * 3.67) + (tomato * 1.11) + (aubergine * 5.00) + (banana * 0.95);
+        System.out.println("Total amount is " + Math.round(sum) + " TL.");
+    }
+}
