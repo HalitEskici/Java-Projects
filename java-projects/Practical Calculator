@@ -1,0 +1,40 @@
+package Test;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner calculation = new Scanner(System.in);
+        double numberOne, numberTwo;
+        int select;
+        System.out.print("Enter the first number: ");
+        numberOne = calculation.nextInt();
+        System.out.print("Enter the second number: ");
+        numberTwo = calculation.nextInt();
+
+        System.out.println("1-Addition\n2-Subtraction\n3-Multiplication\n4-Division");
+        System.out.println("Your choice is: ");
+        select = calculation.nextInt();
+
+        switch (select) {
+            case 1:
+                System.out.println("The addition of numbers: " + (numberOne + numberTwo));
+                break;
+            case 2:
+                System.out.println("The subtraction of numbers: " + (numberOne - numberTwo));
+                break;
+            case 3:
+                System.out.println("The multiplication of numbers: " + (numberOne * numberTwo));
+                break;
+            case 4:
+                if (numberTwo == 0) {
+                    System.out.println("A number cannot be divided by 0.");
+                } else {
+                    System.out.println("The division of numbers: " + (numberOne / numberTwo));
+                }
+                break;
+            default:
+                System.out.println("Please enter a valid operation!");
+        }
+    }
+}
