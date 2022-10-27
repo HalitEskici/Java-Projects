@@ -1,0 +1,38 @@
+package Test;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner comparison = new Scanner(System.in);
+        int a, b, c;
+        System.out.print("Enter the 1st number: ");
+        a = comparison.nextInt();
+
+        System.out.print("Enter the 2nd number: ");
+        b = comparison.nextInt();
+
+        System.out.print("Enter the 3rd number: ");
+        c = comparison.nextInt();
+
+        if ((a > b && a > c)) {
+            if (b > c) {
+                System.out.println("In order from largest to smallest: " + a + ", " + b + ", " + c + ".");
+            } else {
+                System.out.println("In order from largest to smallest: " + a + ", " + c + ", " + b + ".");
+            }
+        } else if ((b > a && b > c)) {
+            if (a > c) {
+                System.out.println("In order from largest to smallest: " + b + ", " + a + ", " + c + ".");
+            } else {
+                System.out.println("In order from largest to smallest: " + b + ", " + c + ", " + a + ".");
+            }
+        } else {
+            if (a > b) {
+                System.out.println("In order from largest to smallest: " + c + ", " + a + ", " + b + ".");
+            } else {
+                System.out.println("In order from largest to smallest: " + c + ", " + b + ", " + a + ".");
+            }
+        }
+    }
+}
