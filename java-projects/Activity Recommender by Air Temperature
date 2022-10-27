@@ -1,0 +1,32 @@
+package Test;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner weather = new Scanner(System.in);
+        double heat;
+        System.out.print("Enter Temperature: ");
+        heat = weather.nextDouble();
+
+        //There are two ways to code this. One is on the comment line as below:
+
+        /*if (heat < 5) {
+            System.out.println("You can ski.");
+        } else if (heat <= 25) {
+            if (heat <= 15) {
+                System.out.println("You can go to the cinema.");
+            } else if (heat <= 25) {
+                System.out.println("You can go on a picnic.");
+            }
+        } else {
+            System.out.println("You can go swimming.");
+        }*/
+
+        String action = (heat < 5) ? "You can ski." :
+                (heat >= 5 && heat <= 15) ? "You can go to the cinema." :
+                        (heat >= 15 && heat < 25) ? "You can go on a picnic." :
+                                (heat >= 25) ? "You can go swimming." : "You entered an invalid value.";
+        System.out.println("Action you can take according to the air temperature: " + action);
+    }
+}
