@@ -1,0 +1,40 @@
+package Test;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        double age, distance, totalPerKM, ageDiscount = 1;
+        int type;
+
+        System.out.print("Enter the distance in km: ");
+        distance = input.nextDouble();
+
+        System.out.print("Enter your age: ");
+        age = input.nextDouble();
+
+        System.out.print("Enter the type of your trip (1-One Way 2-Round Trip): ");
+        type = input.nextInt();
+
+        totalPerKM = distance * 0.10;
+
+        if (distance < 0 || age < 0 || type < 1 || type > 2) {
+            System.out.println("You entered incorrect data!");
+        } else {
+            if (age < 12) {
+                ageDiscount = 0.5;
+            } else if (age >= 12 && age < 24) {
+                ageDiscount = 0.9;
+            } else if (age > 65) {
+                ageDiscount = 0.7;
+            }
+            if (type == 2) {
+                totalPerKM *= 0.8;
+            }
+            totalPerKM *= ageDiscount;
+            System.out.println(totalPerKM);
+        }
+    }
+}
