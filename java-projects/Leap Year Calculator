@@ -1,0 +1,30 @@
+package Test;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        /*What is a leap year?
+         A leap year is a year with 366 days instead of 365 in the Gregorian calendar.
+         This extra day (leap day) is obtained by adding February 29 to February, which is normally 28 days. */
+         
+        Scanner input = new Scanner(System.in); 
+        int year;
+
+        System.out.print("Enter Year: ");
+        year = input.nextInt();
+
+        if (year % 400 == 0) {
+            System.out.println(year + " is a leap year.");
+        } else {
+            if (year % 100 == 0) {
+                System.out.println(year + " is not a leap year.");
+            } else if (year % 4 == 0) {
+                System.out.println(year + " is a leap year.");
+            } else {
+                System.out.println(year + " is not a leap year.");
+            }
+        }
+    }
+}
