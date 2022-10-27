@@ -1,0 +1,159 @@
+package Test;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner horoscope = new Scanner(System.in);
+        int month, day;
+
+        System.out.print("The month you were born: ");
+        month = horoscope.nextInt();
+        System.out.print("The day you were born: ");
+        day = horoscope.nextInt();
+
+        if (month == 1) {
+            if (day >= 1) {
+                if (day < 22) {
+                    System.out.println("Your zodiac sign is Capricorn.");
+                } else if (day <= 31) {
+                    System.out.println("Your zodiac sign is Aquarius.");
+                } else {
+                    System.out.println("You entered an invalid day.");
+                }
+            }
+        }
+
+        if (month == 2) {
+            if (day >= 1) {
+                if (day < 20) {
+                    System.out.println("Your zodiac sign is Aquarius.");
+                } else if (day <= 29) {
+                    System.out.println("Your zodiac sign is Pisces.");
+                } else {
+                    System.out.println("You entered an invalid day.");
+                }
+            }
+        }
+
+        if (month == 3) {
+            if (day >= 1) {
+                if (day < 21) {
+                    System.out.println("Your zodiac sign is Pisces.");
+                } else if (day <= 31) {
+                    System.out.println("Your zodiac sign is Aries.");
+                } else {
+                    System.out.println("You entered an invalid day.");
+                }
+            }
+        }
+
+        if (month == 4) {
+            if (day >= 1) {
+                if (day < 21) {
+                    System.out.println("Your zodiac sign is Aries.");
+                } else if (day <= 30) {
+                    System.out.println("Your zodiac sign is Taurus.");
+                } else {
+                    System.out.println("You entered an invalid day.");
+                }
+            }
+        }
+
+        if (month == 5) {
+            if (day >= 1) {
+                if (day < 22) {
+                    System.out.println("Your zodiac sign is Taurus.");
+                } else if (day <= 31) {
+                    System.out.println("Your zodiac sign is Gemini.");
+                } else {
+                    System.out.println("You entered an invalid day.");
+                }
+            }
+        }
+
+        if (month == 6) {
+            if (day >= 1) {
+                if (day < 23) {
+                    System.out.println("Your zodiac sign is Gemini.");
+                } else if (day <= 30) {
+                    System.out.println("Your zodiac sign is Cancer.");
+                } else {
+                    System.out.println("You entered an invalid day.");
+                }
+            }
+        }
+
+        if (month == 7) {
+            if (day >= 1) {
+                if (day < 23) {
+                    System.out.println("Your zodiac sign is Cancer.");
+                } else if (day <= 31) {
+                    System.out.println("Your zodiac sign is Leo.");
+                } else {
+                    System.out.println("You entered an invalid day.");
+                }
+            }
+        }
+
+        if (month == 8) {
+            if (day >= 1) {
+                if (day < 23) {
+                    System.out.println("Your zodiac sign is Leo.");
+                } else if (day <= 31) {
+                    System.out.println("Your zodiac sign is Virgo.");
+                } else {
+                    System.out.println("You entered an invalid day.");
+                }
+            }
+        }
+
+        if (month == 9) {
+            if (day >= 1) {
+                if (day < 23) {
+                    System.out.println("Your zodiac sign is Virgo.");
+                } else if (day <= 30) {
+                    System.out.println("Your zodiac sign is Libra.");
+                } else {
+                    System.out.println("You entered an invalid day.");
+                }
+            }
+        }
+
+        if (month == 10) {
+            if (day >= 1) {
+                if (day < 23) {
+                    System.out.println("Your zodiac sign is Libra.");
+                } else if (day <= 31) {
+                    System.out.println("Your zodiac sign is Scorpio.");
+                } else {
+                    System.out.println("You entered an invalid day.");
+                }
+            }
+        }
+
+        if (month == 11) {
+            if (day >= 1) {
+                if (day < 22) {
+                    System.out.println("Your zodiac sign is Scorpio.");
+                } else if (day <= 30) {
+                    System.out.println("Your zodiac sign is Sagittarius.");
+                } else {
+                    System.out.println("You entered an invalid day.");
+                }
+            }
+        }
+
+        if (month == 12) {
+            if (day >= 1) {
+                if (day < 22) {
+                    System.out.println("Your zodiac sign is Sagittarius.");
+                } else if (day <= 31) {
+                    System.out.println("Your zodiac sign is Capricorn.");
+                } else {
+                    System.out.println("You entered an invalid day.");
+                }
+            }
+        }
+    }
+}
