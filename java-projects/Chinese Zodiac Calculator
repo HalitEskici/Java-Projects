@@ -1,0 +1,46 @@
+package Test;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        //Chinese astrology is a type of astrology that has been used for 4000 years.
+        //It describes people with 12 different signs and symbols.
+
+        Scanner input = new Scanner(System.in);
+        int birthYear;
+        double chineseZodiac;
+
+        System.out.print("Enter Your Birth Year: ");
+        birthYear = input.nextInt();
+
+        chineseZodiac = birthYear % 12;
+
+        if (chineseZodiac == 0) {
+            System.out.println("Your Chinese Zodiac Sign: Monkey");
+        } else if (chineseZodiac == 1) {
+            System.out.println("Your Chinese Zodiac Sign: Rooster");
+        } else if (chineseZodiac == 2) {
+            System.out.println("Your Chinese Zodiac Sign: Dog");
+        } else if (chineseZodiac == 3) {
+            System.out.println("Your Chinese Zodiac Sign: Pig");
+        } else if (chineseZodiac == 4) {
+            System.out.println("Your Chinese Zodiac Sign: Mouse");
+        } else if (chineseZodiac == 5) {
+            System.out.println("Your Chinese Zodiac Sign: Ox");
+        } else if (chineseZodiac == 6) {
+            System.out.println("Your Chinese Zodiac Sign: Tiger");
+        } else if (chineseZodiac == 7) {
+            System.out.println("Your Chinese Zodiac Sign: Rabbit");
+        } else if (chineseZodiac == 8) {
+            System.out.println("Your Chinese Zodiac Sign: Dragon");
+        } else if (chineseZodiac == 9) {
+            System.out.println("Your Chinese Zodiac Sign: Snake");
+        } else if (chineseZodiac == 10) {
+            System.out.println("Your Chinese Zodiac Sign: Horse");
+        } else {
+            System.out.println("Your Chinese Zodiac Sign: Sheep");
+        }
+    }
+}
