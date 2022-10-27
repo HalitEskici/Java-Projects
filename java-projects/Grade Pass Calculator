@@ -1,0 +1,66 @@
+package Test;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner grade = new Scanner(System.in);
+        int math, physics, turkish, chemistry, music;
+        //counter stands for determining the number of courses.
+        int average = 0, counter = 0;
+
+        System.out.print("Your Mathematics Grade: ");
+        math = grade.nextInt();
+        if (math >= 0 && math <= 100) {
+            math = math;
+            counter++;
+        } else {
+        //the reason why any course equals average(which is 0 yet) is because if the grade is not between 0 and 100, it will not be included in the average.
+            math = average;
+        }
+
+        System.out.print("Your Physics Grade: ");
+        physics = grade.nextInt();
+        if (physics >= 0 && physics <= 100) {
+            physics = physics;
+            counter++;
+        } else {
+            physics = average;
+        }
+
+        System.out.print("Your Turkish Grade: ");
+        turkish = grade.nextInt();
+        if (turkish >= 0 && turkish <= 100) {
+            turkish = turkish;
+            counter++;
+        } else {
+            turkish = average;
+        }
+
+        System.out.print("Your Chemistry Grade: ");
+        chemistry = grade.nextInt();
+        if (chemistry >= 0 && chemistry <= 100) {
+            chemistry = chemistry;
+            counter++;
+        } else {
+            chemistry = average;
+        }
+
+        System.out.print("Your Music Grade: ");
+        music = grade.nextInt();
+        if (music >= 0 && music <= 100) {
+            music = music;
+            counter++;
+        } else {
+            music = average;
+        }
+        average = (math + physics + turkish + chemistry + music) / counter;
+
+        if (average < 55) {
+            System.out.println("You failed the class. See you next year.");
+        } else {
+            System.out.println("Congratulations! You passed the class.");
+        }
+        System.out.println("Your Average: " + average);
+    }
+}
