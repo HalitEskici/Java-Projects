@@ -1,0 +1,41 @@
+package Test;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner login = new Scanner(System.in);
+        Scanner login2 = new Scanner(System.in);
+        String username = "halit", password = "eskici", newPassword;
+        int reply;
+        System.out.print("Your username: ");
+        username = login.nextLine();
+
+        System.out.print("Your password: ");
+        password = login.nextLine();
+
+        if (username.equals("halit") && password.equals("eskici")) {
+            System.out.println("Congrats! You successfully logged in.");
+        } else {
+            System.out.println("Your login information is incorrect.");
+            System.out.print("Would you like to reset your password?");
+            System.out.println(" Press 1 if yes, press 2 if no.");
+
+            reply = login.nextInt();
+            switch (reply) {
+                case 1:
+                    System.out.println("Enter your new password:");
+                    newPassword = login2.nextLine();
+                    if (newPassword.equals("eskici")) {
+                        System.out.println("You entered your old password. Unfortunately, you have no right to try.");
+                    } else {
+                        System.out.println("Congratulations! You changed your password successfully.");
+                    }
+                    break;
+                case 2:
+                    System.out.println("You indicated that you do not want to change your password. Exiting the system...");
+                    break;
+            }
+        }
+    }
+}
