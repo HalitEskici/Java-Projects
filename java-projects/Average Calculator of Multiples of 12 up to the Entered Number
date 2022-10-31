@@ -1,0 +1,25 @@
+package Test;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        /* With Java loops, numbers from 0 to the number entered
+        Write a program that calculates the average of numbers divisible by both 3 and 4.*/
+        Scanner input = new Scanner(System.in);
+        int number, count = 0;
+        double sum = 0;
+
+        System.out.print("Enter a number: ");
+        number = input.nextInt();
+
+        for (int i = 0; i <= number; i++) {
+            if (i % 12 == 0) {
+                sum += i;
+                count++;
+            }
+        }
+        System.out.println("The average of numbers less than the number you entered, divisible by both 3 and 4, is: " + sum / count);
+
+    }
+}
