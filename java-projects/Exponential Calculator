@@ -1,0 +1,21 @@
+package Test;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int input, exponent, count = 1;
+        System.out.print("Enter the base number: ");
+        input = scan.nextInt();
+
+        System.out.print("Enter the exponent: ");
+        exponent = scan.nextInt();
+        int a = exponent;
+        for (; exponent > 0; exponent--) {
+            count *= input;
+        }
+        System.out.println(input + " to the power of " + a + " equals " + count);
+
+    }
+}
