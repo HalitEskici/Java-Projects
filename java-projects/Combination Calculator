@@ -1,0 +1,34 @@
+package Test;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner scan = new Scanner(System.in);
+        int number, group, combination = 1, calculation = 1;
+        System.out.print("Enter the number of elements of the set: ");
+        number = scan.nextInt();
+
+        System.out.print("Enter how many elements you want to create a group: ");
+        group = scan.nextInt();
+
+        int a = group;
+        int group1 = group;
+        int number1 = number;
+
+        for (; a >= 1; a--) {
+            combination *= number;
+            number--;
+        }
+
+        int b = group;
+
+        for (; b >= 1; b--) {
+            calculation *= group;
+            group--;
+        }
+
+        System.out.println("The combination of " + number1 + " with " + group1 + " is: " + combination / calculation);
+    }
+}
