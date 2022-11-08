@@ -1,0 +1,67 @@
+package Test;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner scan = new Scanner(System.in);
+        String userName, password;
+        int chance = 3, balance = 1500;
+        int select;
+
+        while (chance > 0) {
+            System.out.print("Enter your username: ");
+            userName = scan.nextLine();
+
+            System.out.print("Enter your password: ");
+            password = scan.nextLine();
+
+            if (userName.equals("halit") && password.equals("eskici")) {
+                System.out.println("Hello. Welcome to X Bank!");
+
+                do {
+                    System.out.println("1-Deposit money\n" +
+                            "2-Withdraw money\n" +
+                            "3-Balance inquiry\n" +
+                            "4-Exit");
+                    System.out.print("Please enter the action you want to do: ");
+                    select = scan.nextInt();
+
+                    switch (select) {
+                        case 1:
+                            System.out.print("Enter the amount you want to deposit: ");
+                            int add = scan.nextInt();
+                            balance += add;
+                            break;
+                        case 2:
+                            System.out.print("Enter the amount you want to withdraw: ");
+                            int subtract = scan.nextInt();
+
+                            if (subtract > balance) {
+                                System.out.println("Your balance is insufficient.");
+                            } else {
+                                balance -= subtract;
+                            }
+                            break;
+                        case 3:
+                            System.out.println("Your current balance: " + balance);
+                            break;
+                    }
+
+                } while (select != 4);
+                System.out.println("Exiting the system...");
+                break;
+            } else {
+                chance--;
+                System.out.println("Wrong username or password. Please try again.");
+                if (chance == 0) {
+                    System.out.println("Your account has been blocked. Please contact your bank.");
+                } else {
+                    System.out.println("Your remaining attempt: " + chance);
+                }
+            }
+
+        }
+    }
+}
