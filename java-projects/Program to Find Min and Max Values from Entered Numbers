@@ -1,0 +1,39 @@
+package Test;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner scan = new Scanner(System.in);
+
+        int max = 0, min = 0;
+        System.out.print("Enter how many numbers you want to compare: ");
+        int total = scan.nextInt();
+
+        if (total >= 2) {
+            for (int i = 1; i <= total; i++) {
+                System.out.print("Enter the number: ");
+                int number = scan.nextInt();
+
+                if (number > max) {
+                    if (min == 0) {
+                        min = number;
+                    }
+                    max = number;
+                }
+                if (number < min) {
+                    if (max == 0) {
+                        max = number;
+                    }
+                    min = number;
+                }
+            }
+            System.out.println("Largest number: " + max);
+            System.out.println("Smallest number: " + min);
+        } else {
+            System.out.println("You entered an insufficient number of entries.");
+        }
+
+    }
+}
