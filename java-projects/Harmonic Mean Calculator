@@ -1,0 +1,26 @@
+package Test;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        /*The harmonic mean is a type of numerical average.
+        It is calculated by dividing the number of observations, or entries in the series, by the reciprocal of each number in the series.
+        Thus, the harmonic mean is the reciprocal of the arithmetic mean of the reciprocals.
+         */
+
+
+        Scanner scan = new Scanner(System.in);
+        int number;
+        double harmonicMean = 0;
+        System.out.print("Enter a number: ");
+        number = scan.nextInt();
+
+        for (int i = 1; i <= number; i++) {
+            harmonicMean += (1.0 / i);
+        }
+        System.out.println("Harmonic mean of the number you entered is: " + harmonicMean);
+
+    }
+}
