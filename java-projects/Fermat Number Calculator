@@ -1,0 +1,17 @@
+package Test;
+
+public class Main {
+    public static void main(String[] args) {
+
+        /*The Fermat Number Form was put forward by the famous mathematician Pierre de Fermat, who lived in the 17th century.
+        According to the hypothesis, all numbers resulting from this form are prime numbers (except for the value n=5).
+        In today's conditions, Fermat number was calculated for the last n=11 value.
+        As a matter of fact, since it is too large for n>11 values, primality control could not be done.
+        Fermat Numbers are calculated with this formula: (2^(2^n) + 1).*/
+
+        for (int n = 0; n <= 4; n++) {
+            long fermat = (long) (Math.pow(2, Math.pow(2, n)) + 1);
+            System.out.println("n = " + n + "\t" + fermat);
+        }
+    }
+}
