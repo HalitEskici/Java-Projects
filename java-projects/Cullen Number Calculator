@@ -1,0 +1,27 @@
+package Test;
+
+public class Main {
+    public static void main(String[] args) {
+
+        /*The Cullen number form was introduced by the famous mathematician Cullen.
+          Cullen numbers are found with the formula [(n.2^n)+1].
+          The numbers 3,9,25,65,161,395 can be given as examples of Cullen Numbers.
+          If the Cullen Numbers are also prime numbers, they are called Cullen Prime Numbers.*/
+
+        for (int n = 1; n <= 20; n++) {
+            long cullen = (long) (n * Math.pow(2, n) + 1);
+            System.out.print("n = " + n + "\t" + cullen);
+            int dividing = 0;
+            for (long i = 1; i <= cullen; i++) {
+                if (cullen % i == 0) {
+                    dividing++;
+                }
+            }
+            if (dividing == 2) {
+                System.out.println(" is a Cullen Prime Number.");
+            } else {
+                System.out.println();
+            }
+        }
+    }
+}
