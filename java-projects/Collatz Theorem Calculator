@@ -1,0 +1,25 @@
+package Test;
+
+public class Main {
+    /*Collatz Theorem was put forward by Collatz in 1937 and has not been proven yet.
+     Some operations are applied depending on whether the numbers are odd or even.
+     According to the theorem, if the number is even, divide by 2, if odd, multiply by 3 and add one.
+     Continue this process until you reach the number 1.*/
+    public static int Collatz(int n) {
+        if (n == 1) {
+            return 1;
+        } else if (n % 2 == 0) {
+            return Collatz(n / 2);
+        } else {
+            return Collatz((3 * n) + 1);
+        }
+    }
+
+    public static void main(String[] args) {
+
+        for (int i = 1; i <= 100; i++) {
+            System.out.println(i + "\t Collatz ->\t" + Collatz(i));
+        }
+
+    }
+}
