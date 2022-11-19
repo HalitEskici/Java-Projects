@@ -1,0 +1,43 @@
+package Test;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        /*Variance is the expected value of the squared variation
+         of a random variable from its mean value, in probability and statistics.
+         Informally, variance estimates how far a set of numbers (random) are
+         spread out from their mean value.*/
+        /*While standard deviation is the square root of the variance,
+         variance is the average of all data points within a group.*/
+        
+        Scanner scan = new Scanner(System.in);
+        int n;
+        double mean = 0, variance = 0, standardDev = 0;
+
+        System.out.print("Enter the number of students: ");
+        n = scan.nextInt();
+
+        int[] grades = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            System.out.print((i + 1) + ". student's grade: ");
+            grades[i] = scan.nextInt();
+            mean += grades[i];
+        }
+
+        mean /= n;
+
+        for (int i = 0; i < n; i++) {
+            variance += Math.pow(mean - ((double) grades[i]), 2);
+        }
+        variance /= n;
+
+        standardDev = Math.pow(variance, 1.0 / 2.0);
+
+        System.out.println("Mean: " + mean);
+        System.out.println("Variance: " + variance);
+        System.out.println("Standard Deviation: " + standardDev);
+
+    }
+}
