@@ -1,0 +1,49 @@
+package Test;
+
+import java.util.Scanner;
+
+public class Main {
+
+    /*The Luhn algorithm is a verification algorithm developed by Hans Peter Luhn,
+         a German-born computer scientist, and IBM in 1954 and is still used in all credit cards today.*/
+    /*For a credit card with number 16 starting with 0 index, the index of the last number is 15.
+     * Multiply the even index digits by two, add the digits of the result and keep it in a variable.
+     * Keep sum of odd index digits in another variable.
+     * Add these two variables and check whether it can be divisible by 10 without remainder or not.
+     * If it can, it is correct; If cannot, it is not a correct credit card number.
+     * */
+
+    static int digitSum(int number) {
+        int sum = 0;
+        while (number != 0) {
+            sum += number;
+            number /= 10;
+        }
+        return number;
+    }
+
+    public static void main(String[] args) {
+
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Enter your credit card number: ");
+        String creditNumber = scan.next();
+
+        int oddDigits = 0, evenDigits = 0;
+
+        for (int i = 0; i < 16; i++) {
+            if (i % 2 == 0) {
+                evenDigits += digitSum(2 * ((int) (creditNumber.charAt(i) - '0')));
+            } else {
+                oddDigits += ((int) ((creditNumber.charAt(i) - '0')));
+            }
+        }
+
+        if ((evenDigits + oddDigits) % 10 == 0) {
+            System.out.println("Correct Card Number!");
+            //for example: 1234567898765432
+        } else {
+            System.out.println("Wrong Card Number!");
+        }
+
+    }
+}
