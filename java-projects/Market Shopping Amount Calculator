@@ -1,0 +1,227 @@
+package Test;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        /*In a market a customer purchases are entered like that:
+        first number of purchases then respectively name of the item, price of the item, promotion type
+        (0: no promotion,1: promotion type 1, 2: promotion type 2) and finally whether the item is luxury or normal (1 luxury 0 normal).
+        After entering all information about an item, the user presses ENTER key.
+        When -1 is entered for number of purchases of the item this indicates the end of entry
+        A typical screen is like that:
+
+	                    #of Purchase	Name 	Price	Promotion Type(0-1-2)	Status (0-1)
+
+        For new purchase: 	  2	        pan 	10.5	        1	              0  (ENTER)
+        For new purchase: 	  1	        apple 	9	            0	              1  (ENTER)
+        For new purchase: 	  1	        orange 	8.5	            0	              0  (ENTER)
+        For new purchase: 	  -1
+
+        In the purchase list, first 2 items are purchased, item name is pan, price is 10.5, promotion type 1 and the item is normal
+
+        •	If promotion type is 0: no promotion
+        If promotion type is 1 %10 discount is applied up to the total value of 50 $ and %20 discount is applied to the amount exceeding 50$
+        (e.g. if price of meat is 30, 2 kg meat is purchased pay 50*0.9+10*0.8 =53 rather then 60)
+        If promotion type is 2:  if total number of purchases exceeds 2, for the items exceeding 2 the charged price is half of the listed price
+        (e.g. if three chocolates are purchased at 5 $ each, pay 2*5+1*2.5)
+        •	For each product, first calculate the discount due to promotion then make the tax calculation
+        •	For normal items value added tax (VAT) rate is 0.15, for luxury items 0.25
+        •	Report the overalls as follows:
+            Total gross payment without discounts and before VAT
+            Total discount made
+            Total net payments after discounts without VAT
+            Total value added tax paid
+            Total payment including VAT
+        •	Give all necessary messages for the user (prompting users to enter specific values)
+        •	Do all necessary controls (e.g. input checks)
+        */
+        double total_gross_payment = 0, total_discount_made, total_net_payments, total_value_added_tax_paid, total_payment_including_vat;
+
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter amount of product purchased, name of the product, price of the product, promotion type of the product and status of product in order.");
+        System.out.println("				Number of Purchase  - Name -    Price   - Promotion Type(0-1-2)- Status (0-1)");
+
+        while (true) {
+            System.out.print("Amount: ");
+
+            int purchaseNumber = input.nextInt();
+
+            if (purchaseNumber < -1) {
+                System.out.println("Please don't enter any negative values. (Except the -1 value entered to finish the operation.)");
+
+                System.out.print("Amount: ");
+                purchaseNumber = input.nextInt();
+            }
+
+            if (purchaseNumber == -1) {
+                System.out.println("		  For new purchase:       -1");
+                break;
+            }
+
+            System.out.print("Name: ");
+
+            String name = input.next();
+
+            System.out.print("Price: ");
+
+            double price = input.nextDouble();
+            if (price < 0) {
+                System.out.println("Please don't enter any negative values.");
+                System.out.print("Price: ");
+                price = input.nextInt();
+            }
+
+            System.out.print("Promotion Type: ");
+
+            int promotionType = input.nextInt();
+
+            if (promotionType == 0 || promotionType == 1 || promotionType == 2) {
+
+            } else {
+                System.out.println("Please enter 0, 1 or 2 values.");
+                promotionType = input.nextInt();
+            }
+
+            System.out.print("Status: ");
+            int status = input.nextInt();
+
+            if (status == 0 || status == 1) {
+
+            } else {
+                System.out.println("Please enter 0, 1 or 2 values.");
+                status = input.nextInt();
+            }
+
+            System.out.printf("		  For new purchase:       %d               %s         %f           %d           	 %d \n", purchaseNumber, name, price, promotionType, status);
+
+            if (promotionType == 0 && status == 1) {
+                total_gross_payment += ((purchaseNumber * price)) * (1.25);
+
+            }
+
+            if (promotionType == 0 && status == 1) {
+
+                System.out.println("Your total cost = " + (purchaseNumber * price) * (1.25));
+                System.out.println("Total gross payment without discounts and before VAT = " + (purchaseNumber * price));
+                System.out.println("Total discount made = " + "0");
+                System.out.println("Total net payments after discounts without VAT = " + (purchaseNumber * price));
+                System.out.println("Total value added tax paid = " + (purchaseNumber * price) * (0.25));
+                System.out.println("Total payment including VAT = " + (purchaseNumber * price) * (1.25));
+
+            }
+
+            if (promotionType == 0 && status == 0) {
+
+                System.out.println("Your total cost = " + (purchaseNumber * price * 1.15));
+                System.out.println("Total gross payment without discounts and before VAT = " + (purchaseNumber * price));
+                System.out.println("Total discount made = " + "0");
+                System.out.println("Total net payments after discounts without VAT = " + (purchaseNumber * price));
+                System.out.println("Total value added tax paid = " + (purchaseNumber * price) * (0.15));
+                System.out.println("Total payment including VAT = " + (purchaseNumber * price) * (1.15));
+            }
+
+            if (promotionType == 1 && status == 0) {
+                if ((purchaseNumber * price) > 50) {
+
+                    System.out.println("Your total cost = " + ((50 * 0.9 + (purchaseNumber * price - 50) * 0.8)) * 1.15);
+                    System.out.println("Total gross payment without discounts and before VAT = " + (purchaseNumber * price));
+                    System.out.println("Total discount made = " + (50 * 0.1 + (purchaseNumber * price - 50) * 0.2));
+                    System.out.println("Total net payments after discounts without VAT = " + (purchaseNumber * price));
+                    System.out.println("Total value added tax paid = " + (purchaseNumber * price) * (0.15));
+                    System.out.println("Total payment including VAT = " + (purchaseNumber * price) * (1.15));
+
+
+                } else {
+                    System.out.println("Your total cost = " + ((purchaseNumber * price) * (0.9)) * 1.15);
+
+
+                    System.out.println("Total gross payment without discounts and before VAT = " + (purchaseNumber * price));
+                    System.out.println("Total discount made = " + ((purchaseNumber * price) * 0.1));
+                    System.out.println("Total net payments after discounts without VAT = " + ((purchaseNumber * price) * 0.9));
+                    System.out.println("Total value added tax paid = " + (purchaseNumber * price) * (0.15));
+                    System.out.println("Total payment including VAT = " + ((purchaseNumber * price) * (1.15) - ((purchaseNumber * price) * (0.1))));
+
+
+                }
+            }
+
+            if (promotionType == 1 && status == 1) {
+                if ((purchaseNumber * price) > 50) {
+
+                    System.out.println("Your total cost = " + ((50 * 0.9 + (purchaseNumber * price - 50) * 0.8)) * 1.25);
+
+                    System.out.println("Total gross payment without discounts and before VAT = " + (purchaseNumber * price));
+                    System.out.println("Total discount made = " + (50 * 0.1 + (purchaseNumber * price - 50) * 0.2));
+                    System.out.println("Total net payments after discounts without VAT = " + (purchaseNumber * price) * (0.9));
+                    System.out.println("Total value added tax paid = " + (purchaseNumber * price) * (0.25));
+                    System.out.println("Total payment including VAT = " + (purchaseNumber * price) * (1.25));
+
+
+                } else {
+
+
+                    System.out.println("Your total cost = " + ((purchaseNumber * price) * (0.9)) * 1.25);
+                    System.out.println("Total gross payment without discounts and before VAT = " + (purchaseNumber * price));
+                    System.out.println("Total discount made = " + (50 * 0.1 + (purchaseNumber * price - 50) * 0.2));
+                    System.out.println("Total net payments after discounts without VAT = " + (purchaseNumber * price) * (0.9));
+                    System.out.println("Total value added tax paid = " + (purchaseNumber * price) * (0.25));
+                    System.out.println("Total payment including VAT = " + (purchaseNumber * price) * (1.25));
+
+
+                }
+            }
+
+            if (promotionType == 2 && status == 0) {
+                if (purchaseNumber > 2) {
+
+                    System.out.println("Your total cost = " + (2 * price + (purchaseNumber - 2) * (price / 2)) * 1.15);
+
+                    System.out.println("Total gross payment without discounts and before VAT = " + (purchaseNumber * price));
+                    System.out.println("Total discount made = " + (purchaseNumber * price) * (0.5) + ((purchaseNumber - 2) * (price)));
+                    System.out.println("Total net payments after discounts without VAT = " + (purchaseNumber * price) * (0.5));
+                    System.out.println("Total value added tax paid = " + (purchaseNumber * price) * (0.15));
+                    System.out.println("Total payment including VAT = " + (purchaseNumber * price) * (1.15));
+
+
+                } else {
+
+                    System.out.println("Your total cost = " + (price * purchaseNumber) * 1.15);
+                    System.out.println("Total gross payment without discounts and before VAT = " + (purchaseNumber * price));
+                    System.out.println("Total discount made = " + "0");
+                    System.out.println("Total net payments after discounts without VAT = " + (purchaseNumber * price));
+                    System.out.println("Total value added tax paid = " + (purchaseNumber * price) * (0.15));
+                    System.out.println("Total payment including VAT = " + (purchaseNumber * price) * (1.15));
+
+
+                }
+            }
+
+            if (promotionType == 2 && status == 1) {
+                if (purchaseNumber > 2) {
+
+                    System.out.println("Your total cost = " + (2 * price + (purchaseNumber - 2) * (price / 2)) * 1.25);
+
+
+                    System.out.println("Total gross payment without discounts and before VAT = " + (purchaseNumber * price));
+                    System.out.println("Total discount made = " + (purchaseNumber * price) * (0.5) + ((purchaseNumber - 2) * (price)));
+                    System.out.println("Total net payments after discounts without VAT = " + (purchaseNumber * price) * (0.5));
+                    System.out.println("Total value added tax paid = " + (purchaseNumber * price) * (0.25));
+                    System.out.println("Total payment including VAT = " + (purchaseNumber * price) * (1.25));
+
+
+                } else {
+
+                    System.out.println("Total gross payment without discounts and before VAT = " + (purchaseNumber * price));
+                    System.out.println("Total discount made = " + "0");
+                    System.out.println("Total net payments after discounts without VAT = " + (purchaseNumber * price));
+                    System.out.println("Total value added tax paid = " + (purchaseNumber * price) * (0.15));
+                    System.out.println("Total payment including VAT = " + (purchaseNumber * price) * (1.15));
+
+
+                }
+            }
+        }
+
+    }
+}
