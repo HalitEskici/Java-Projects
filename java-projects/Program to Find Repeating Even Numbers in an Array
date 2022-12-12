@@ -1,0 +1,36 @@
+package Test;
+
+public class Main {
+
+    static boolean isAbsent(int[] arr, int value) {
+        for (int i : arr) {
+            if (i == value) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        int[] list = {3, 7, 3, 3, 2, 2, 4, 4, 12, 12, 9, 10, 21, 1, 33, 9, 1};
+        int[] even = new int[list.length];
+        int firstElement = 0;
+        for (int i = 0; i < list.length; i++) {
+            for (int j = 0; j < list.length; j++) {
+                if ((i != j) && list[j] == list[i]) {
+                    if (isAbsent(even, list[i])) {
+                        even[firstElement++] = list[i];
+                    }
+                    break;
+                }
+            }
+        }
+        System.out.print("Repeating even numbers: ");
+        for (int a : even) {
+            if (a != 0 && a % 2 == 0) {
+                System.out.print(a + " ");
+            }
+        }
+
+    }
+}
