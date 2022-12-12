@@ -1,0 +1,33 @@
+package Test;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Enter the size of the array: ");
+        int input = scan.nextInt();
+        int[] list = new int[input];
+        int value;
+        System.out.println("Enter the elements of the array: ");
+        for (int i = 0; i < input; i++) {
+            System.out.print("Enter element " + (i + 1) + ": ");
+            list[i] = scan.nextInt();
+        }
+
+        for (int j = 0; j < list.length; j++) {
+            for (int k = j + 1; k < list.length; k++) {
+                if (list[j] > list[k]) {
+                    value = list[j];
+                    list[j] = list[k];
+                    list[k] = value;
+                }
+            }
+        }
+
+        System.out.println("The sorted form of your array is as follows: ");
+        for (int x : list) {
+            System.out.print(x + " ");
+        }
+    }
+}
