@@ -1,0 +1,63 @@
+package Test;
+
+import java.util.Arrays;
+import java.util.Scanner;
+import java.util.Random;
+
+public class Main {
+    public static void main(String[] args) {
+
+        /*The random number between 0 and 100 can be created like that as well:
+        int random = ((int)Math.random() * 100);
+         */
+        //Another way of creating a random number:
+        Random rand = new Random();
+        int number = rand.nextInt(100);
+        //wrote this to get an input from the user.
+        Scanner input = new Scanner(System.in);
+        //The user's number of right to find the random number.
+        int right = 0;
+        int selected;
+        //The array of wrong answers.
+        int[] wrong = new int[5];
+        boolean isWin = false;
+        boolean isWrong = false;
+        System.out.println(number);
+        while (right < 5) {
+            System.out.print("Please enter your guess: ");
+            selected = input.nextInt();
+            if (selected < 0 || selected > 99) {
+                System.out.println("Please enter a number between 0 and 100");
+                if (isWrong) {
+                    right++;
+                    System.out.println("You entered so many wrong entry." + " You have " + (5 - right) + " chances left.");
+                } else {
+                    isWrong = true;
+                    System.out.println("Your next wrong entry will be deducted from you.");
+                }
+                continue;
+            }
+            if (selected == number) {
+                System.out.println("Congrulations! Correct guess. The number you guessed: " + number);
+                isWin = true;
+                break;
+            } else {
+                System.out.println("You entered a wrong number.");
+                if (selected > number) {
+                    System.out.println(selected + " is bigger than the number.");
+                } else {
+                    System.out.println(selected + " is smaller than the number.");
+                }
+                wrong[right] = selected;
+                right++;
+                System.out.println("You have " + (5 - right) + " chance left.");
+            }
+        }
+        if (!isWin) {
+            System.out.println("You lost! ");
+            if (!isWrong) {
+                System.out.println("Your guesses: " + Arrays.toString(wrong));
+            }
+        }
+    }
+}
